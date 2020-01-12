@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const cron = require('node-cron');
+const axios = require('axios');
 
 const router = require('./src/router');
 
@@ -9,8 +10,15 @@ server.use(cors());
 server.use(express.json());
 
 
-cron.schedule('* * * * *', function () {
-    console.log('Running Cron Job');
+cron.schedule('* * * * *', async function () {
+  console.log('Running Cron Job\n');
+  console.log(new Date(Date.now()), '\n');
+  try {
+    const result = await axios.get('https://chingsley-accounts.herokuapp.com/api/new_accounts');
+    console.log(result.data.slice(0, 2));
+  } catch (error) {
+    console.error(error)
+  }
 });
 
 server.get('/', (req, res) => {
