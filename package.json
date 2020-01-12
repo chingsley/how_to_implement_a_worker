@@ -1,0 +1,25 @@
+{
+  "name": "node-cron-job-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "start": "node index.js",
+    "dev-start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.2",
+    "oracledb": "^4.1.0",
+    "sequelize": "^5.21.3"
+  }
+}
